@@ -16,4 +16,10 @@ for f in test_files:
     print(f'{f}: MAE = {mae:.3f}')
     mae_list.append(mae)
 
+
 print(f'Средняя MAE по всем тестовым наборам: {sum(mae_list)/len(mae_list):.3f}')
+
+with open('metrics.txt', 'w') as f:
+    for m in mae_list:
+        f.write(f'MAE = {m:.4f}\n')
+    f.write(f'Средняя MAE по всем тестовым наборам: {sum(mae_list)/len(mae_list):.3f}')
